@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(void)
+{
+    char fname[20] = "number.txt";
+    FILE *out;
+    puts("Добавление числа в файл");
+    if ((out = fopen(fname, "at")) == NULL)   // "at" вместо "wt"
+    {
+        printf("Ошибка открытия файла для записи");
+        return 0;
+    }
+    fprintf(out, "%.2f\n", 12.56);            // новое число с новой строки
+    fclose(out);
+    return 1;
+}
